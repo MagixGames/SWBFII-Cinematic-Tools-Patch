@@ -1,0 +1,13 @@
+@include "offsets.efptxt"
+
+// -- fix DXRENDERER offsets -- 
+
+// 1st offset use
+0x89a8c WRITE	98 0E 	// (0xE98  mov rax,[rcx+E98h])
+
+// 2nd offset use 
+0x89acb WRITE	A0 0E 	// (0xEA0  mov rax,[rcx+EA0h])
+
+// 3rd offset use
+0x89b0a WRITE	88 0C	// (0xC88  mov rax,[rcx+C88h])
+0x89b11 WRITE	38		// (0x338  mov rcx,[rax+338h])
