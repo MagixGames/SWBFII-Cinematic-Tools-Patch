@@ -1,0 +1,4 @@
+
+// Changes the checked game version to the most updated version
+GOTO 0xade050
+WRITESTRINGN "2020-08-13"
