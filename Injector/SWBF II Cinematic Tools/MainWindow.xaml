@@ -1,0 +1,35 @@
+<Window
+	x:Class="SWBF_II_Cinematic_Tools.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:SWBF_II_Cinematic_Tools"
+	Title="SWBF II Cinematic Tools"
+	Height="178.471"
+	Width="425.585"
+	ResizeMode="NoResize"
+	AllowsTransparency="True"
+	WindowStyle="None"
+	Background="#99000000"
+	BorderBrush="#FF000000"
+	BorderThickness="1"
+	WindowStartupLocation="CenterScreen"
+	Icon="Assets/starwarsbattlefrontii_101.ico"
+	MouseDown="Window_MouseDown">
+	<Grid>
+		<Image
+			HorizontalAlignment="Left"
+			Height="164"
+			Margin="9,2,-16,0"
+			VerticalAlignment="Top"
+			Width="431"
+			Source="Assets/CT_Title.png" />
+		<Label
+			Name="statusLabel"
+			Content="Checking for updates..."
+			Margin="10,127,10,0"
+			HorizontalContentAlignment="Center"
+			VerticalContentAlignment="Center"
+			FontSize="16"
+			FontFamily="./Assets/#Purista Medium"
+			Foreground="#FFFFFFFF"
+			Height="29"
+			VerticalAlignment="Top" />
+	</Grid>
+</Window>

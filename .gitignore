@@ -1,2 +1,5 @@
 db/
 *.patched.*
+**/bin/
+**/obj/
+**/.vs/
