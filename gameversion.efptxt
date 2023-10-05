@@ -1,5 +1,7 @@
 
 // Changes the checked game version to the most updated version
+// Most updated version: '2020-08-13'
 // Notes: we cant actually do this as cinetools acts differently as a result :/
 GOTO 0xade050
 WRITESTRINGN "2077-69-42"
+// WRITESTRINGN "2020-08-13"
