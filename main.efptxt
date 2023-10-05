@@ -1,6 +1,9 @@
 @include "offsets.efptxt"
 @include "gameversion.efptxt"
 
+// change FrontEnd string (used for checking what level the player is in)
+//0xade258 WRITESTRINGN "Not FrontEnd"
+
 // -- fix DXRENDERER offsets -- 
 
 // 1st offset use
