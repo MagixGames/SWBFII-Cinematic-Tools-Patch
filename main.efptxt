@@ -1,6 +1,7 @@
 @include "offsets.efptxt"
 @include "staticoffsets.efptxt"
 @include "gameversion.efptxt"
+@include "cosmetic.efptxt"
 
 // change FrontEnd string (used for checking what level the player is in)
 //0xade258 WRITESTRINGN "Not FrontEnd"

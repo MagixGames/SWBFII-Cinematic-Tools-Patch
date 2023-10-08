@@ -1,0 +1,4 @@
+// Change the credits text
+// Max length: 0x19a or 410
+GOTO 0xAE25B0
+WRITESTRINGN "Test for newlines\nand if we ever want to change the credits ig\ncool newlines"

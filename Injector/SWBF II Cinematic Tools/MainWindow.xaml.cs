@@ -83,18 +83,17 @@ namespace SWBF_II_Cinematic_Tools
 				MessageBox.Show("OpenProcess failed. GetLastError " + Marshal.GetLastWin32Error(), "Error", MessageBoxButton.OK, MessageBoxImage.Hand);
 				return;
 			}
-			IEnumerator enumerator = Process.GetProcessById((int)num).Modules.GetEnumerator();
-			
-			while (enumerator.MoveNext())
-			{
-				if (((ProcessModule)enumerator.Current).FileName == fullPath)
-				{
-					this.isInjected = true;
-					return;
-				}
-			}
 
-			IntPtr procAddress = MainWindow.GetProcAddress(MainWindow.GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+            foreach (ProcessModule module in Process.GetProcessById((int)num).Modules)
+            {
+                if (module.FileName == fullPath)
+                {
+                    this.isInjected = true;
+                    return;
+                }
+            }
+
+            IntPtr procAddress = MainWindow.GetProcAddress(MainWindow.GetModuleHandle("kernel32.dll"), "LoadLibraryA");
 			if (procAddress == MainWindow.IntptrZero)
 			{
 				MessageBox.Show("GetProcAddress failed. GetLastError " + Marshal.GetLastWin32Error(), "Error", MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -120,11 +119,10 @@ namespace SWBF_II_Cinematic_Tools
 			}
 			MainWindow.CloseHandle(intPtr);
 			Thread.Sleep(1000);
-			enumerator = Process.GetProcessById((int)num).Modules.GetEnumerator();
 
-			while (enumerator.MoveNext())
+			foreach (ProcessModule module in Process.GetProcessById((int)num).Modules)
 			{
-				if (((ProcessModule)enumerator.Current).FileName == fullPath)
+				if (module.FileName == fullPath)
 				{
 					this.isInjected = true;
 					return;
