@@ -8,6 +8,8 @@
 
 // -- fix DXRENDERER offsets -- 
 
+// uses in CT::Initialize()
+
 // 1st offset use
 0x89a8c WRITE	98 0E 	// (0xE98  mov rax,[rcx+E98h])
 
@@ -17,3 +19,19 @@
 // 3rd offset use
 0x89b0a WRITE	88 0C	// (0xC88  mov rax,[rcx+C88h])
 0x89b11 WRITE	38		// (0x338  mov rcx,[rax+338h])
+
+
+// various uses of pDeviceContext
+
+// CT::EffectManager::ctr
+0x97ea1 WRITE 	A0 0E	// (0xEA0  mov rdx, [rdx+EA0h])
+
+// CT::SpotLight::ctr
+0xa0a3a WRITE	A0 0E	// (0xEA0  mov rdx, [rdx+EA0h])
+
+// CT::SphereLight::ctr
+0xa0352 WRITE	A0 0E	// (0xEA0  mov rdx, [rdx+EA0h])
+
+// test skip dealing with WORLDRENDERER (flip jz to jnz)
+// 0x8a135 WRITE 	75		// (jnz short loc_18008AD43)
+// ^ this doesnt work bc MESHRENDERER also fucks with the worldrenderer, just causing another crash :/

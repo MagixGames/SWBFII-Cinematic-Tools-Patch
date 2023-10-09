@@ -1,0 +1,7 @@
+DxRenderer offset updates:
+
+pScreen (0xB78 -> 0xC88)
+  pSwapChain (0x330 -> 0x338)
+
+pDevice (0xD88 -> 0xE98)
+pDeviceContext (0xD90 -> 0xEA0)
