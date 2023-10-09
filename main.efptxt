@@ -35,3 +35,8 @@
 // test skip dealing with WORLDRENDERER (flip jz to jnz)
 // 0x8a135 WRITE 	75		// (jnz short loc_18008AD43)
 // ^ this doesnt work bc MESHRENDERER also fucks with the worldrenderer, just causing another crash :/
+
+// change some WORLDRENDER offset
+0x8a12e WRITE	18 09		// (mov rdx, [r8+918h])
+
+0x8a146 WRITE	80 D4		// (mov rdx, [r8+D480h])
