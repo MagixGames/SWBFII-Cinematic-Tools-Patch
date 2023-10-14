@@ -1,4 +1,4 @@
 // Change the credits text
 // Max length: 0x19a or 410
 GOTO 0xAE25B0
-WRITESTRINGN "Test for newlines\nand if we ever want to change the credits ig\ncool newlines"
+WRITESTRINGN "CineTools, updated by MagixGames / Magix1484\n\nHuge thanks to github/NatalieWhatever for the help in reverse engineering\n\nControls guide coming soon!"

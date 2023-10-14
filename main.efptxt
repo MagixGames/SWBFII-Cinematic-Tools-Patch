@@ -32,16 +32,23 @@
 // CT::SphereLight::ctr
 0xa0352 WRITE	A0 0E	// (0xEA0  mov rdx, [rdx+EA0h])
 
-// test skip dealing with WORLDRENDERER (flip jz to jnz)
-// 0x8a135 WRITE 	75		// (jnz short loc_18008AD43)
-// ^ this doesnt work bc MESHRENDERER also fucks with the worldrenderer, just causing another crash :/
 
 // change some WORLDRENDER offsets
+// object that has shadowmap resolution in it
+0xa8154 WRITE	00 09
+0xa816c WRITE 	50			// shifted just 8 bytes up
+
+// 0x8C8 -> 0x918
 0x8a12e WRITE	18 09		// (mov rdx, [r8+918h])
 0x8a6e7 WRITE	18 09		// (mov rdx, [r8+918h])
+0xa32f2 WRITE	18 09		
+0xa3f06 WRITE	18 09		
 
+// 0xD400 -> 0xD480
 0x8a146 WRITE	80 D4		// (mov rdx, [r8+D480h])
 0x8a6d7 WRITE	80 D4		// (mov rdx, [r8+D480h])
+0xa3300 WRITE	80 D4		
+0xa3ef8 WRITE	80 D4		
 
 // some object in SYSTEM's vtable changes
 0xa74b1 WRITE	70			// (call qword ptr [rax+70h])
