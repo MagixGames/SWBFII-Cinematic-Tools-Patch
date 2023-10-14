@@ -36,7 +36,23 @@
 // 0x8a135 WRITE 	75		// (jnz short loc_18008AD43)
 // ^ this doesnt work bc MESHRENDERER also fucks with the worldrenderer, just causing another crash :/
 
-// change some WORLDRENDER offset
+// change some WORLDRENDER offsets
 0x8a12e WRITE	18 09		// (mov rdx, [r8+918h])
+0x8a6e7 WRITE	18 09		// (mov rdx, [r8+918h])
 
 0x8a146 WRITE	80 D4		// (mov rdx, [r8+D480h])
+0x8a6d7 WRITE	80 D4		// (mov rdx, [r8+D480h])
+
+// some object in SYSTEM's vtable changes
+0xa74b1 WRITE	70			// (call qword ptr [rax+70h])
+0xa74bd WRITE	C8			// (call qword ptr [rax+0C8h])
+
+
+// god i hope this works
+// this attempts to put the input manager as the argument instead of
+// putting disablemouse/enablemouse but this probably wont work
+//0xa7497 WRITE 	48 8d 17 90 90 // (lea rdx, [rdi])
+
+// skips everything to do with fb::setMouseState because it
+// has an extremely bad crash we cant fix rn
+0xa7497 WRITE 	90 90 90 90 90 90 90 90 90 90 90 90 // NOP x 12 or 0xB times
