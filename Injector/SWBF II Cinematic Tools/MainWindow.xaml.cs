@@ -46,19 +46,19 @@ namespace SWBF_II_Cinematic_Tools
 		[DllImport("kernel32.dll")]
 		private static extern int CloseHandle(IntPtr hObject);
 
-        private static readonly IntPtr IntptrZero = (IntPtr)0;
-        private static string g_shortName = "SWBF2.patched";
-        private static string g_dllPath = "CT_SWBF2.patched.dll";
-        private static string g_targetExe = "starwarsbattlefrontii";
-        private static bool g_hasTrial = true;
-        private static string g_targetExeTrial = "starwarsbattlefrontii_trial";
-        private BackgroundWorker bgWorker = new BackgroundWorker();
-        private bool isInjected;
+		private static readonly IntPtr IntptrZero = (IntPtr)0;
+		private static string g_shortName = "SWBF2.patched";
+		private static string g_dllPath = "CT_SWBF2.patched.dll";
+		private static string g_targetExe = "starwarsbattlefrontii";
+		private static bool g_hasTrial = true;
+		private static string g_targetExeTrial = "starwarsbattlefrontii_trial";
+		private BackgroundWorker bgWorker = new BackgroundWorker();
+		private bool isInjected;
 		private const string c_dlUrl = "https://github.com/MagixGames/SWBFII-Cinematic-Tools-Patch/releases/latest/download/updateinfo.txt";
 
 
-        // Token: 0x06000008 RID: 8 RVA: 0x00002048 File Offset: 0x00000248
-        private void Inject()
+		// Token: 0x06000008 RID: 8 RVA: 0x00002048 File Offset: 0x00000248
+		private void Inject()
 		{
 			uint num = 0U;
 			Process[] processes = Process.GetProcesses();
@@ -85,16 +85,16 @@ namespace SWBF_II_Cinematic_Tools
 				return;
 			}
 
-            foreach (ProcessModule module in Process.GetProcessById((int)num).Modules)
-            {
-                if (module.FileName == fullPath)
-                {
-                    this.isInjected = true;
-                    return;
-                }
-            }
+			foreach (ProcessModule module in Process.GetProcessById((int)num).Modules)
+			{
+				if (module.FileName == fullPath)
+				{
+					this.isInjected = true;
+					return;
+				}
+			}
 
-            IntPtr procAddress = MainWindow.GetProcAddress(MainWindow.GetModuleHandle("kernel32.dll"), "LoadLibraryA");
+			IntPtr procAddress = MainWindow.GetProcAddress(MainWindow.GetModuleHandle("kernel32.dll"), "LoadLibraryA");
 			if (procAddress == MainWindow.IntptrZero)
 			{
 				MessageBox.Show("GetProcAddress failed. GetLastError " + Marshal.GetLastWin32Error(), "Error", MessageBoxButton.OK, MessageBoxImage.Hand);
@@ -144,11 +144,11 @@ namespace SWBF_II_Cinematic_Tools
 			WebClient webClient = new WebClient();
 			StreamReader streamReader;
 			try
-            {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-                streamReader = new StreamReader(webClient.OpenRead(c_dlUrl));
-                Thread.Sleep(50);
-                goto IL_98;
+			{
+				ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+				streamReader = new StreamReader(webClient.OpenRead(c_dlUrl));
+				Thread.Sleep(50);
+				goto IL_98;
 			}
 			catch (WebException ex)
 			{
