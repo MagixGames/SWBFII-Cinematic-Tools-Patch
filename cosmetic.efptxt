@@ -1,4 +1,4 @@
 // Change the credits text
 // Max length: 0x19F or 415
 GOTO 0xAE25B0
-WRITESTRINGN "CineTools, updated by MagixGames / Magix1484\n\nThanks to git/NatalieWhatever for the help in reverse engineering\n\nF5: Toggle tools UI\nINSERT: Toggle camera\nHOME: Toggle game UI\nF: Create camera keyframe\nG: Delete latest keyframe\nP: Play camera track\n\nEffect controls:\nE: Play last effect you aimed at\nR: Stop the effect\nHold R: Delete effect\nQ: Pick up effect\nE+Mouse: Rotate picked up effect"
+WRITESTRINGN "CineTools, updated by MagixGames / Magix1484\n\nThanks to git/NatalieWhatever for the help in reverse engineering\n\nF5: Toggle tools UI\nINSERT: Toggle camera\nDELETE: Freeze time\NHOME: Toggle game UI\nF: Create camera keyframe\nG: Delete keyframe\nP: Play camera track\nEffect controls:\nE: Play effect\nR: Stop effect\nHold R: Delete effect\nQ: Pick up effect\nE+Mouse: Rotate picked up effect"

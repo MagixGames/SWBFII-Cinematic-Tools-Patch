@@ -1,4 +1,4 @@
 // This is required to get updating working as the updater checks if the timestamp is larger or not to update.
 // I'm gonna pretty much change this into an int that is a version number since thats easy to manage.
 GOTO 0x150
-INT32 1010
+INT32 1020
