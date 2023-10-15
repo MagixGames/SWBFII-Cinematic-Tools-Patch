@@ -2,6 +2,7 @@
 @include "staticoffsets.efptxt"
 @include "gameversion.efptxt"
 @include "cosmetic.efptxt"
+@include "builddate.efptxt"
 
 // change FrontEnd string (used for checking what level the player is in)
 //0xade258 WRITESTRINGN "Not FrontEnd"
@@ -53,6 +54,9 @@
 // some object in SYSTEM's vtable changes
 0xa74b1 WRITE	70			// (call qword ptr [rax+70h])
 0xa74bd WRITE	C8			// (call qword ptr [rax+0C8h])
+
+// Fix animation loading
+0x8ebf5 WRITE   18 04		// idk what this does lmao
 
 
 // god i hope this works

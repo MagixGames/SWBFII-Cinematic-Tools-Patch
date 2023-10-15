@@ -47,13 +47,14 @@ namespace SWBF_II_Cinematic_Tools
 		private static extern int CloseHandle(IntPtr hObject);
 
         private static readonly IntPtr IntptrZero = (IntPtr)0;
-        private static string g_shortName = "SWBFII";
+        private static string g_shortName = "SWBF2.patched";
         private static string g_dllPath = "CT_SWBF2.patched.dll";
         private static string g_targetExe = "starwarsbattlefrontii";
         private static bool g_hasTrial = true;
         private static string g_targetExeTrial = "starwarsbattlefrontii_trial";
         private BackgroundWorker bgWorker = new BackgroundWorker();
         private bool isInjected;
+		private const string c_dlUrl = "https://github.com/MagixGames/SWBFII-Cinematic-Tools-Patch/releases/latest/download/updateinfo.txt";
 
 
         // Token: 0x06000008 RID: 8 RVA: 0x00002048 File Offset: 0x00000248
@@ -136,16 +137,18 @@ namespace SWBF_II_Cinematic_Tools
 		private void CheckUpdates()
 		{
 			// For now lets skip this func entirely
-			return;
+			//return;
 
 			uint timeDateStamp = new PeFileHeaderReader(MainWindow.g_dllPath).FileHeader.TimeDateStamp;
 			uint num = 0U;
 			WebClient webClient = new WebClient();
 			StreamReader streamReader;
 			try
-			{
-				streamReader = new StreamReader(webClient.OpenRead("http://cinetools.xyz/download/version"));
-				goto IL_98;
+            {
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+                streamReader = new StreamReader(webClient.OpenRead(c_dlUrl));
+                Thread.Sleep(50);
+                goto IL_98;
 			}
 			catch (WebException ex)
 			{
