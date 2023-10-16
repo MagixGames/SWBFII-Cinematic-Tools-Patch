@@ -146,7 +146,7 @@ namespace CTUpdater
 				{
 					if (zipArchiveEntry.FullName.Contains("Updater"))
 					{
-						zipArchiveEntry.ExtractToFile("./Updater.exe", true);
+						zipArchiveEntry.ExtractToFile("./NewUpdater.exe", true);
 					}
 					else
 					{

@@ -58,6 +58,13 @@
 // Fix animation loading
 0x8ebf5 WRITE   18 04		// idk what this does lmao
 
+// TEMP: Disable "Animator" menu until it is fixed (!!REMOVE TO WORK ON IT)
+0xa843c WRITE	EB 1A	// turns the call for creating the menu item into a jmp
+
+
+// Fix crash on rotate effect
+0x98a71 WRITE	58			// shift a func in vtable by 8 bytes
+0x98a96 WRITE	58			
 
 // god i hope this works
 // this attempts to put the input manager as the argument instead of
@@ -66,4 +73,15 @@
 
 // skips everything to do with fb::setMouseState because it
 // has an extremely bad crash we cant fix rn
-0xa7497 WRITE 	90 90 90 90 90 90 90 90 90 90 90 90 // NOP x 12 or 0xB times
+0xa7497 WRITE 	90 90 90 90 90 90 90 90 90 90 90 90 // NOP x 12 or 0xC times
+
+
+// Visual toggle fixes
+// in 0xd480
+0xa33f8 WRITE	F4 0C // FilmicEffects - 0xCF4
+0xa3454 WRITE	50 0E // Vignette - 0xE50
+0xa341e WRITE	98 0E // FilmGrain - 0xE98
+0xa3431 WRITE	00 13 // RadialBlur - 0x1300
+0x8a6fd WRITE	23 0E // DOF - 0xE23
+// in 0x918
+0xa381c WRITE	37 02 // SpriteDofNearEnable - 0x237
