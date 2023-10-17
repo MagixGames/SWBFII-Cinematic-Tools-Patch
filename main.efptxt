@@ -4,6 +4,8 @@
 @include "cosmetic.efptxt"
 @include "builddate.efptxt"
 
+@include "asm/main.efptxt"
+
 // change FrontEnd string (used for checking what level the player is in)
 //0xade258 WRITESTRINGN "Not FrontEnd"
 
@@ -77,11 +79,18 @@
 
 
 // Visual toggle fixes
+
 // in 0xd480
 0xa33f8 WRITE	F4 0C // FilmicEffects - 0xCF4
 0xa3454 WRITE	50 0E // Vignette - 0xE50
 0xa341e WRITE	98 0E // FilmGrain - 0xE98
 0xa3431 WRITE	00 13 // RadialBlur - 0x1300
 0x8a6fd WRITE	23 0E // DOF - 0xE23
+
 // in 0x918
 0xa381c WRITE	37 02 // SpriteDofNearEnable - 0x237
+
+
+// code edits to make the green text appear for game version but make it still search patterns
+0x899f3 WRITE	90 90	// nop a jz
+// 0x89a18 WRITE	3A		// change a jmp to 18008A658 to 18008A653 so it includes the call to InitPatterns()
