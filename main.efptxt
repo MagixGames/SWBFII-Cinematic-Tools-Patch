@@ -85,9 +85,41 @@
 0xa3454 WRITE	50 0E // Vignette - 0xE50
 0xa341e WRITE	98 0E // FilmGrain - 0xE98
 0xa3431 WRITE	00 13 // RadialBlur - 0x1300
-0x8a6fd WRITE	23 0E // DOF - 0xE23
+0x8a6fd WRITE	1A 0E // DOF - 0xE23 // e21 e1a
+
+// color grading 0xC68
+// SSR C6C
+
+// the DOF sliders
+// found by similar structure of everything but FocalDistance being next to eachother (in two seperate places but the second farther one doesnt really have an effect afaik
+// focal distance is easy to find because its the only '00 00 A0 40' around there
+
+// DofNearStart
+0x8a713 WRITE 78 0D
+0x8a71b WRITE EC 0D
+
+// DofFarStart
+0x8a728 WRITE 80 0D
+0x8a730 WRITE F4 0D
+
+// DofNearLength
+0x8a73D WRITE 7C 0D
+0x8a745 WRITE F0 0D
+
+// DofFarLength
+0x8a752 WRITE 84 0D
+0x8a75A WRITE F8 0D
+
+// DofFocalDistance
+0x8a763 WRITE 54 0D
+
+// DofMaxBlur
+0x8a770 WRITE 74 0D
+0x8a778 WRITE FC 0D
+
 
 // in 0x918
+// idk if this actually has an effect
 0xa381c WRITE	37 02 // SpriteDofNearEnable - 0x237
 
 

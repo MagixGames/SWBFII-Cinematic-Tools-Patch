@@ -10,3 +10,19 @@ WorldRenderer offset updates:
 0xD400 -> 0xD480
 0x8B0 -> 0x900
 0x8C8 -> 0x918
+
+
+DOF value updates (in WorldRenderer+0xD480):
+FocalDistance - D54
+MaxBlur - 0xD74 
+NearStart - 0xD78 
+NearLength - 0xD7C 
+FarStart - 0xD80
+FarLength - 0xD84
+
+repeats ig
+NearStart - 0xDEC
+NearLength - 0xDF0
+FarStart - 0xDF4
+FarLength - 0xDF8
+MaxBlur - 0xDFC
