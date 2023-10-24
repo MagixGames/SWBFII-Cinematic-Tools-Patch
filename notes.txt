@@ -26,3 +26,6 @@ NearLength - 0xDF0
 FarStart - 0xDF4
 FarLength - 0xDF8
 MaxBlur - 0xDFC
+
+Animator fixes
+ClientAntAnimatableEntity in WSClientSoldierEntity (0x3D8 -> 0x418)

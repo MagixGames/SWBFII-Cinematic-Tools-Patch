@@ -11,6 +11,9 @@ Instructions:
 
 ## Notes
 - `SWBF II Cinematic Tools.exe` is a decompiled and recompiled version of the one originally given out, which will inject `CT_SWBF2.patched.dll` instead of without the '.patched' part.
+- `Updater.exe` is also a decompiled version of the updater originally released but changed to work with this new system
 - Release versions will only ship with files:
   - CT_SWBF2.patched.dll
   - SWBF II Cinematic Tools.exe
+  - Updater.exe
+  - controls.tx
