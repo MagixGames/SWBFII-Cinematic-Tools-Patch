@@ -63,6 +63,7 @@ namespace SWBF_II_Cinematic_Tools
 			uint num = 0U;
 			Process[] processes = Process.GetProcesses();
 			this.SetStatus("Waiting for " + MainWindow.g_targetExe + ".exe");
+			string exeDirPath = "";
 			while (num == 0U)
 			{
 				for (int i = 0; i < processes.Length; i++)
@@ -70,14 +71,28 @@ namespace SWBF_II_Cinematic_Tools
 					if (processes[i].ProcessName == MainWindow.g_targetExe || (MainWindow.g_hasTrial && processes[i].ProcessName == MainWindow.g_targetExeTrial))
 					{
 						num = (uint)processes[i].Id;
-						Path.GetDirectoryName(processes[i].MainModule.FileName);
+						exeDirPath = Path.GetDirectoryName(processes[i].MainModule.FileName);
 					}
 				}
 				Thread.Sleep(1000);
-			}
+                processes = Process.GetProcesses();
+            }
 			this.SetStatus(MainWindow.g_targetExe + ".exe found");
-			Thread.Sleep(1000);
-			string fullPath = Path.GetFullPath(MainWindow.g_dllPath);
+            Thread.Sleep(500);
+			if (!Directory.Exists(exeDirPath + "/Cinematic Tools/"))
+			{
+				Directory.CreateDirectory(exeDirPath + "/Cinematic Tools");
+            }
+            if (!File.Exists(exeDirPath + "/Cinematic Tools/CT.log"))
+            {
+                File.Create(exeDirPath + "/Cinematic Tools/CT.log");
+            }
+            if (!File.Exists(exeDirPath + "/Cinematic Tools/Offsets.log"))
+            {
+                File.Create(exeDirPath + "/Cinematic Tools/Offsets.log");
+            }
+            Thread.Sleep(500);
+            string fullPath = Path.GetFullPath(MainWindow.g_dllPath);
 			IntPtr intPtr = MainWindow.OpenProcess(1082U, 1, num);
 			if (intPtr == MainWindow.IntptrZero)
 			{
